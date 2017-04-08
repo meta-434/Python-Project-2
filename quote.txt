@@ -1,5 +1,7 @@
-He that would make his own liberty liberty secure,
-must guard even his enemy from oppression;
-for for if he violates this duty, he
-he establishes a precedent that will reach to himself.
--- Thomas Paine
+THIS IS A TEST OF THE FILE READ FUNCTION
+THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG
+EENY MEENY MINEY MO
+CATCH A TIGER BY THE TOE
+IF IT HOLLERS LET IT GO
+EENY MEENY MINEY MO
+-- THOMAS PAINE

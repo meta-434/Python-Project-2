@@ -21,7 +21,7 @@
 #<Alex Hapgood>
 ############################################################################
 file_name = input('Enter file name: ')
-file_obj = open(file_name, 'r')
+file_obj = open(file_name, "w")
 
 message = input('Enter a string: ')
 val_list = []
