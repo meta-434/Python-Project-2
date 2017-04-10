@@ -19,22 +19,15 @@
 #interfere with the normal operation of the WebCat Server.
 #
 #<Alex Hapgood>
-############################################################################
-file_name = input('Enter file name: ')
-file_obj = open(file_name, "w")
+###########################################################################
 
 message = input('Enter a string: ')
 val_list = []
 scrambled = []
 unscrambled = []
 var_continue = 'Y'
-shift = input('Enter shift amounts: ')
-x = shift.split(' ')
-shift1 = int(x[0])
-shift2 = int(x[1])
-shift3 = int(x[2])
-shift4 = int(x[3])
-shift5 = int(x[4])
+shift = int(input('Enter shift amounts: '))
+
 
 while var_continue == 'Y':
 
