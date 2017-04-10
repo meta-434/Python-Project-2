@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d6e853-8dad-4a76-9423-2ecf5355f78f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p2-2.py" afterPath="$PROJECT_DIR$/p2-2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/p2.py" afterPath="$PROJECT_DIR$/p2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quote.txt" afterPath="$PROJECT_DIR$/quote.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testarea.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,12 +18,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="p2-2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="p2-2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p2-2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
+            <state relative-caret-position="486">
               <caret line="95" column="56" lean-forward="false" selection-start-line="95" selection-start-column="56" selection-end-line="95" selection-end-column="56" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testarea.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testarea.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+              <folding>
+                <element signature="e#401#1327#0" expanded="false" />
+                <element signature="e#1498#2180#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,8 +54,18 @@
       <file leaf-file-name="p2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/p2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
-              <caret line="123" column="0" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="123" selection-end-column="0" />
+            <state relative-caret-position="435">
+              <caret line="51" column="48" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="51" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hw5.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../homework5/hw5.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-45">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,16 +92,18 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>message</find>
       <find>plainText_middle_index</find>
-      <find>val_list</find>
       <find>scrabledText</find>
       <find>scrambled</find>
+      <find>scrambledText</find>
+      <find>val_list</find>
+      <find>message</find>
     </findStrings>
     <replaceStrings>
       <replace>plainTextMiddle</replace>
-      <replace>ordList</replace>
       <replace>scrambledText</replace>
+      <replace>ordList</replace>
+      <replace>plainText</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -91,6 +115,7 @@
         <option value="$PROJECT_DIR$/quote.txt" />
         <option value="$PROJECT_DIR$/p2.py" />
         <option value="$PROJECT_DIR$/p2-2.py" />
+        <option value="$PROJECT_DIR$/testarea.py" />
       </list>
     </option>
   </component>
@@ -133,7 +158,7 @@
       <pane id="Scope" />
     </panes>
   </component>
-  <component name="RunManager" selected="Python.p2-2">
+  <component name="RunManager" selected="Python.testarea">
     <configuration default="false" name="p2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -181,6 +206,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python-Project-2" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../hw6/hw6.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="testarea" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python-Project-2" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testarea.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -319,16 +361,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.p2" />
       <item index="1" class="java.lang.String" itemvalue="Python.p2-2" />
       <item index="2" class="java.lang.String" itemvalue="Python.hw6" />
+      <item index="3" class="java.lang.String" itemvalue="Python.testarea" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.p2-2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.p2" />
-        <item index="2" class="java.lang.String" itemvalue="Python.hw6" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.testarea" />
+        <item index="1" class="java.lang.String" itemvalue="Python.p2-2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.p2" />
+        <item index="3" class="java.lang.String" itemvalue="Python.hw6" />
       </list>
     </recent_temporary>
   </component>
@@ -378,26 +422,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../hw6/hw6.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="31" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/quote.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/p2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="123" column="0" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="123" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -410,11 +438,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../hw6/hw6.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="24" column="31" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="51" column="48" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="51" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../homework5/hw5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/p2-2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
+        <state relative-caret-position="486">
           <caret line="95" column="56" lean-forward="false" selection-start-line="95" selection-start-column="56" selection-end-line="95" selection-end-column="56" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testarea.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding>
+            <element signature="e#401#1327#0" expanded="false" />
+            <element signature="e#1498#2180#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
