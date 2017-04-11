@@ -1,3 +1,5 @@
+plainText = []
+
 file_name = input('Enter file name: ')
 
 with open(file_name) as fileObj:
