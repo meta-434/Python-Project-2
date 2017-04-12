@@ -10,6 +10,8 @@ with open(file_name) as f:
     content = f.readlines()
 content = [a.replace('\n', ' ') for a in content]
 
+print(content[3])
+
 shift_input = input('Enter shift amounts: ')
 shift_list = shift_input.split()
 
@@ -50,20 +52,20 @@ while continueQuery == 'Y':
                 if str(convert_string_list[e]).isnumeric():
                     for z in range(0, len(shift_list)):
                         #print(shift_list[int(z)])
-
+                        print('before ' + chr(int(convert_string_list[e])), int(convert_string_list[e]), int(shift_list[int(z)]))
                         if 97 <= int(convert_string_list[e]) <= 122:
                             convert_string_list[e] = str(int(convert_string_list[e]) + int(shift_list[int(z)]))
-                            print(convert_string_list[e])
+                            print('after ' + chr(int(convert_string_list[e])), int(convert_string_list[e]), int(shift_list[int(z)]))
                             if int(convert_string_list[e]) > 122:
                                 convert_string_list[e] = str(((int(convert_string_list[e]) % 97) - 26) + 97)
-                                #list_scrambled.append(chr(int(convert_string_list[e])))
+
                         elif 65 <= int(convert_string_list[e]) <= 90:
                             convert_string_list[e] = str(int(convert_string_list[e]) + int(shift_list[int(z)]))
                             if int(convert_string_list[e]) > 90:
                                 convert_string_list[e] = str(((int(convert_string_list[e]) % 65) - 26) + 65)
-                                print(convert_string_list[e])
+
                 else:
                     convert_string_list[e] = convert_string_list[e]
                     list_scrambled.append(convert_string_list[e])
-            print(' '.join(list_scrambled))
+
 
