@@ -54,13 +54,13 @@ while continueQuery == 'Y':
                         #print(shift_list[int(z)])
                         print('before ' + chr(int(convert_string_list[e])), int(convert_string_list[e]), int(shift_list[int(z)]))
                         if 97 <= int(convert_string_list[e]) <= 122:
-                            convert_string_list[e] = str(int(convert_string_list[e]) + int(shift_list[int(z)]))
+                            convert_string_list[e] = str(int(convert_string_list[e]) + int(shift_list[int(z % 5)]))
                             print('after ' + chr(int(convert_string_list[e])), int(convert_string_list[e]), int(shift_list[int(z)]))
                             if int(convert_string_list[e]) > 122:
                                 convert_string_list[e] = str(((int(convert_string_list[e]) % 97) - 26) + 97)
 
                         elif 65 <= int(convert_string_list[e]) <= 90:
-                            convert_string_list[e] = str(int(convert_string_list[e]) + int(shift_list[int(z)]))
+                            convert_string_list[e] = str(int(convert_string_list[e]) + int(shift_list[int(z % 5)]))
                             if int(convert_string_list[e]) > 90:
                                 convert_string_list[e] = str(((int(convert_string_list[e]) % 65) - 26) + 65)
 

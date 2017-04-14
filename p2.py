@@ -20,110 +20,197 @@
 #
 #<Alex Hapgood>
 ###########################################################################
+#!!!all of the variables with meaningless names are loop variables or counters of some kind.
+output_list = []
+text_scrambled = []
+text_cleaned = []
+char_continue = 'Y'
+#query and store file name
+file_name = input('Enter file name: ')
+#opening and reading file into list "content"
+with open(file_name) as f:
+    content = f.readlines()
+content = [q.rstrip() for q in content]
+#querying and storing shifts into list "shift_list"
+shift_input = input('Enter shift amounts: ')
+shift_list = shift_input.split()
 
-message = input('Enter a string: ')
-val_list = []
-scrambled = []
-unscrambled = []
-var_continue = 'Y'
-shift = int(input('Enter shift amounts: '))
+###########################################################################
+#@input = inputList - the desired list for scrambling
+#@return = inputList - the returned scrambled (modified) list
+def initScramble (inputList):
+    #for every line in quote...
+    for b in range(0, len(content)):
+        #scramble by replacing e with zw and adding "hokie" to beg, mid, end
+        inputList[b] = inputList[b].replace('E', 'ZW')
+        inputList[b] = inputList[b].replace('e', 'zw')
+        list_middle = len(inputList[b]) // 2
+        inputList[b] = inputList[b][:list_middle] + 'hokie' + inputList[b][list_middle:]
+        inputList[b] = 'hokie' + inputList[b] + 'hokie'
+    return inputList
+#@input = inputList - the desired list for ordinate conversion
+#@return = output_list - the returned converted list
+def ordConverter (inputList):
+    output_list = []
+    #add newline characters every other index for correct formatting
+    for u in range(0, 2*len(inputList)):
+        if u % 2 == 1:
+            inputList.insert(u, '\n')
+    #for every line, for every character, check if char is alphabetical
+    for c in range(0, len(inputList)):
+        for d in range(0, len(inputList[c])):
+            input_string = inputList[c]
+            if input_string[d].isalpha():
+                #convert to ordinate if it is
+                output_list.append(str(ord(input_string[d])))
+            else:
+                output_list.append((str(input_string[d])))
+    return output_list
+#@input = inputList - the desired list for ordinate shifting
+#@return = output_list - the returned shifted ordinate list
+def ordShifter (inputList):
+    #z is a counter variable for accessing the shift_list sequentially.
+    z = 0
+    #the same familiar shift math, but z increments for every non-"\n" character
+    #uses modulus to allow for simple counter use instead of nested loops.
+    for e in range(0, len(inputList)):
+        if str(inputList[e]).isnumeric():
+            if 97 <= int(inputList[e]) <= 122:
+                inputList[e] = str(int(inputList[e]) + int(shift_list[int(z % 5)]))
+                if int(inputList[e]) > 122:
+                    inputList[e] = str(((int(inputList[e]) % 97) - 26) + 97)
+                output_list.append(int(inputList[e]))
+                z += 1
+            elif 65 <= int(inputList[e]) <= 90:
+                inputList[e] = str(int(inputList[e]) + int(shift_list[int(z % 5)]))
+                if int(inputList[e]) > 90:
+                    inputList[e] = str(((int(inputList[e]) % 65) - 26) + 65)
+                output_list.append(int(inputList[e]))
+                z += 1
+        elif str(inputList[e]) == '\n':
+            #if it sees "\n", restart counter
+            output_list.append(str(inputList[e]))
+            z = 0
+        else:
+            output_list.append(str(inputList[e]))
+            z += 1
+    return output_list
+#@input = inputList - the desired list for de-scrambling
+#@return = inputList - the returned de-scrambled (modified) list
+def deScramble (inputList):
+    #basically the reverse of the initScramble function
+    for q in range(0, len(inputList)):
+        inputList[q] = inputList[q][5:(len(inputList[q]) - 5)]
+        list_middle = len(inputList[q]) // 2
+        mid_hokie = inputList[q].find('hokie', list_middle - 3, list_middle + 3)
+        inputList[q] = (inputList[q])[:mid_hokie] + inputList[q][(mid_hokie+5):]
+        inputList[q] = (inputList[q]).replace('ZW', 'E')
+        inputList[q] = (inputList[q]).replace('zw', 'e')
+    return inputList
+#@input = inputList - this kind of does the same thing as ordConverter...
+#@return = output_list - the returned converted list
+def deConverter (inputList):
+    #i'll be honest i didn't know this would be redundant until after i'd written it.
+    #technically it does the same thing as ordConverter but this is already late and
+    #while this is bad form it's not breaking the code, and we're not being graded
+    #on how pythonic or even how streamlined our code is.
+    output_list = []
 
+    for ac in range(0, 2*len(inputList)):
+        if ac % 2 == 1:
+            inputList.insert(ac, '\n')
 
-while var_continue == 'Y':
+    for ad in range (0, len(inputList)):
+        for ae in range(0, len(inputList[ad])):
+            input_string = inputList[ad]
+            if input_string[ae].isalpha():
+                output_list.append(str(ord(int(input_string[ae]))))
+            else:
+                output_list.append((str(input_string[ae])))
+    return output_list
+#@input = inputList - the desired list for reverse-shifting
+#@return = output_list - the returned reverse-shifted ordinate list
+def deShifter (inputList):
+    #same z counter as in ordShifter
+    z = 0
+    output_list = []
+    #the same old backwards conversion math, still using mod math to implement simple
+    #incrementing counters to access shift_list rotating values.
+    for ab in range(0, len(inputList)):
+        if str(inputList[ab]).isnumeric():
+            if 97 <= int(inputList[ab]) <= 122:
+                inputList[ab] = str(int(inputList[ab]) - int(shift_list[int(z % 5)]))
+                if int(inputList[ab]) < 97:
+                    inputList[ab] = str(122 - (97 - int(inputList[ab])) + 1)
+                output_list.append(inputList[ab])
+                z += 1
+            elif int(inputList[ab]) >= 65 and int(inputList[ab]) <= 90:
+                inputList[ab] = str(int(inputList[ab]) - int(shift_list[int(z % 5)]))
+                if int(inputList[ab]) < 65:
+                    inputList[ab] = str(90 - (65 - int(inputList[ab])) + 1)
+                output_list.append(inputList[ab])
+                z += 1
+        elif str(inputList[ab]) == '\n':
+            output_list.append(str(inputList[ab]))
+            z = 0
+        else:
+            output_list.append(inputList[ab])
+            z += 1
+    return output_list
 
+###########################################################################
+while char_continue == 'Y':
+    #repeat until user enters something other than 'Y' when prompted
     if input('Encode (E) or Decode(D)? ') == 'E':
         encrypt = True
     else:
        encrypt = False
-    #####
+
     if encrypt:
-        #adding 'hokie' to beginning, middle, and end of ciphertext.
-        message = message.replace('E', 'zw')
-        message = message.replace('e', 'zw')
-        message_middle_index = len(message) // 2
-        message = message[:message_middle_index] + 'hokie' + message[message_middle_index:]
-        message = 'hokie' + message + 'hokie'
-
-        #storing alpha characters as their utf-8 code, rest are stored as-is.
-        for x in range(0, len(message)):
-            if message[x].isalpha():
-                val_list.append(str(ord(message[x])))
+        #1) scramble plaintext
+        #2) convert to ordinates
+        #3) shift ordinates
+        content = initScramble(content)
+        content = ordConverter(content)
+        content = ordShifter(content)
+        #4) convert ordinates to characters and print
+        for t in range(0, len(content)):
+            if str(content[t]).isnumeric():
+                text_scrambled.append(str(chr(int(content[t]))))
             else:
-                val_list.append(str(message[x]))
+                text_scrambled.append(str(content[t]))
 
-        for y in range(0, len(val_list)):
-            #conversion check for utf-8 values
-            if not val_list[y].isnumeric():
-                val_list[y] = val_list[y]
-            #shifting utf-8 values...
-            else:
-                 if int(val_list[y]) >= 97 and int(val_list[y]) <= 122:
-                   val_list[y] = str(int(val_list[y]) + shift)
-                   if int(val_list[y]) > 122:
-                       val_list[y] = str(((int(val_list[y])%97)-26)+97)
-
-                 elif int(val_list[y]) >= 65 and int(val_list[y]) <= 90:
-                    val_list[y] = str(int(val_list[y]) + shift)
-                    if int(val_list[y]) > 90:
-                       val_list[y] = str(((int(val_list[y])%65)-26)+65)
-        #re-appending
-        for z in range(0, len(val_list)):
-            if not val_list[z].isnumeric():
-                scrambled.append(str(val_list[z]))
-            else:
-               scrambled.append(chr(int(val_list[z])))
-
-        print(''.join(scrambled))
-    #####
+        print(''.join(text_scrambled))
+    
     else:
-        for a in range(0, len(message)):
-            if message[a].isalpha():
-                val_list.append(str(ord(message[a])))
+        #convert ciphertext to ordinates
+        #reverse shift ordinate ciphertext
+        content = ordConverter(content)
+        content = deShifter(content)
+        #convert ordinates to characters and store in list
+        for ag in range(0, len(content)):
+            if str(content[ag]).isnumeric():
+                text_cleaned.append(str(chr(int(content[ag]))))
             else:
-                val_list.append(str(message[a]))
-
-        for b in range(0, len(val_list)):
-            if not val_list[b].isnumeric():
-               val_list[b] = val_list[b]
-            else:
-                if int(val_list[b]) >= 97 and int(val_list[b]) <= 122:
-                    val_list[b] = str(int(val_list[b]) - shift)
-                    if int(val_list[b]) < 97:
-                        val_list[b] = str(122 - (97 - int(val_list[b])) + 1)
-
-                elif int(val_list[b]) >= 65 and int(val_list[b]) <= 90:
-                    val_list[b] = str(int(val_list[b]) - shift)
-                    if int(val_list[b]) < 65:
-                        val_list[b] = str(90 - (65 - int(val_list[b])) + 1)
-
-        for c in range(0, len(val_list)):
-            if not val_list[c].isnumeric():
-               scrambled.append(str(val_list[c]))
-            else:
-               scrambled.append(chr(int(val_list[c])))
-
-        decrypt_string = (''.join(scrambled))
-        decrypt_string = decrypt_string[5:(len(decrypt_string) - 5)]
-        decrypt_middle_index = len(decrypt_string) // 2
-        delim = decrypt_string.find('hokie', decrypt_middle_index - 3, decrypt_middle_index + 3)
-        decrypt_string = decrypt_string[:delim] + decrypt_string[(delim+5):]
-        decrypt_string = decrypt_string.replace('zw', 'e')
-        print(decrypt_string)
-
-        decrypt_string = ''
-        message = ''
-        val_list = []
-    #####
+                text_cleaned.append(str(content[ag]))
+        #put everything back together, then de-scramble it and print
+        text_cleaned = ''.join(text_cleaned)
+        text_cleaned = text_cleaned.split('\n')
+        content = deScramble(text_cleaned)
+        print('\n'.join(content))
+###########################################################################
+    #clearing vars for repeat
+    text_cleaned = []
+    text_scrambled = []
+    content = []
+    #requerying...
     var_continue = str(input('Go again? (Y/N): '))
     if var_continue == 'Y':
-        message = input('Enter a string: ')
-        shift = int(input('Enter the shift amount: '))
-        val_list = []
-        scrambled = []
-        unscrambled = []
+        file_name = input('Enter file name: ')
 
+        with open(file_name) as f:
+            content = f.readlines()
+        content = [q.rstrip() for q in content]
 
-
-
-
-
+        shift_input = input('Enter shift amounts: ')
+        shift_list = shift_input.split()
